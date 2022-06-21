@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Open+Sans:wght@400;500;700&family=Radio+Canada:wght@400;600&family=Stick+No+Bills:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="search.css">
+    <link rel="icon" href="../../images/favicon.ico.svg" type="image/favicon.ico">
+  
+    <title>FlixHub</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">        
+            <h1 class="navbar__logo">Flix<span>Hub</span> </h1>
+            <div class="navbar_container__menu">
+                <ul class="menu-list">
+                    <li class="menu-list_item"><a href="/">Home</a></li>                    
+                </ul>
+            </div>
+            <div class="navbar_container__profile">
+                <img class="profile-picture" alt="profile picture" src="/images/profile.jpg">
+                    
+                <div class="profile-container">
+                    <span>Profile  <i class="fa-solid fa-circle-chevron-down"></i></span>
+
+                    <div class="light-toggle">
+                        <i class="fa-solid fa-moon"></i>
+                        <i class="fa-regular fa-sun"></i>
+                        <div class="light-toggle_ball"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="sidebar">
+        <div class="sidebar-container">        
+            <a href="#"><i class="sidebar__item fa-solid fa-magnifying-glass"></i></a>
+            <a href="/index.html"><i class="sidebar__item fa-solid fa-house-chimney"></i></a>
+            <i class="sidebar__item fa-solid fa-bookmark" id="bookmark-side-button"></i>
+            <i class="sidebar__item fa-solid fa-users"></i>
+            <i class="sidebar__item fa-solid fa-tv"></i>
+            <i class="sidebar__item fa-solid fa-cart-plus"></i>
+        </div>
+    </div>
+
+    <main class="search-main__container">
+        <div class="search-form__container">
+            <h2 class="search-form__title">Find A Movie</h2>
+            <form class="search__form">
+                <label for="search__input">Find A Movie</label>
+                <input enterkeyhint="send"
+                    aria-label="search__input"
+                    class="search__input"
+                    id="search__input"
+                    type="text"
+                    placeholder="Search movies by name"
+                >
+                <button
+                    id="search__button"
+                    type="submit"
+                    class="search__button"
+                    value="Submit"                    
+                >
+                    <i class="fa-brands fa-searchengin"></i>&ensp;Search
+                </button>
+            </form>
+           
+        </div>
+
+        <!-- Found List  -->
+        <div id="display_finding" class="display_finding y mandatory-scroll-snapping" >
+            <div class="movie-list__item">
+                <a class="movie-list__item-link grid-img">
+                    
+                    <title class="movie-list__item-title"></title>
+                    <p class="movie-list__item-description"></p>
+                </a>
+            </div>
+            
+        </div>
+
+        <section class="bookmark-wrapper scale-in-hor-left">
+            
+            <header class="bookmark-header">
+                <h3 class="bookmark-title">Bookmarked Movies</h3>
+                    <dialog class="modal">
+                        <section class="modal-container">
+                        <h2>Bookmark is empty</h2>
+                        <p>You can add any movies you want</p>
+                        <div class="modal-buttons">
+                            <button class="modal__btn-close"> cancel</button>
+                        </div>
+                        </section>
+                    </dialog>
+                <i class="fa-solid fa-square-xmark" id="bookmark-side-button"></i>                           
+            </header>
+            <div class="bookmark-list">
+               
+            </div>
+            <button class="bookmark-delete-button" type="button">Delete List</button>
+        </section>
+
+        
+        
+
+    </main>
+<div><i class="fa-solid fa-circle-up top-link"></i></div>
+    <script src="../main/lightToggle.js"></script>
+    <script src="search.js"></script>
+    <script src="bookmark.js"></script>
+    <script src="modal.js"></script>
+
+</body>
+</html>
