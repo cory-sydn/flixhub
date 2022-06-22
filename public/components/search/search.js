@@ -26,7 +26,7 @@ searchButton.addEventListener("click", (e)=> {
     if (rawInput.match(regExp) === null) return  modal.showModal()
     const query = rawInput.trim()
     //console.log(query);
-    const baseUrl =  "http://localhost:8000/search/" + `${query}`
+    const baseUrl =  "https://cory-sydn.github.io/flixhub/" + `${query}`
     console.log(baseUrl);
     fetchSearchData(baseUrl)
 
