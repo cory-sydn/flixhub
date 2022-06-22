@@ -7,13 +7,15 @@ const HOST_URL = window.location.href
 
 // first load screening Link(default)
 window.addEventListener('load',  ()=> {
-    const API_URL = "http://localhost:8000/" + `discover/movie?sort_by=popularity.desc&`
+    API_URL = "http://localhost:8000/" + `discover/movie?sort_by=popularity.desc&`
     fetchData(API_URL)
 })
 
 const menuButtons = document.getElementsByClassName("menu_link")
 const displayTitle = document.getElementById("display-title")
 
+let API_URL="";
+console.log(API_URL);
 Array.prototype.forEach.call(menuButtons, button =>{
     button.addEventListener('click',()=> {
         const { selectLink } = button.dataset
@@ -31,7 +33,7 @@ Array.prototype.forEach.call(menuButtons, button =>{
                 const firstTitle = selection.includes("top") ? "TOP RATED": selection.includes("date")? "NEW" : "POPULAR"
                 displayTitle.innerText= `${firstTitle} SERIES`
             }
-            const API_URL = "http://localhost:8000/" + `${selectLink}`
+            API_URL = "http://localhost:8000/" + `${selectLink}`
             console.log(API_URL);
             fetchData(API_URL)
         }

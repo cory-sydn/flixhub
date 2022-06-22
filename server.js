@@ -35,11 +35,14 @@ app.use('/discover||movie||tv/:url', ((req, res) => {
     if (query.includes("discover") || query.includes("movie") || query.includes("tv")){
         
         const api_url = `https://api.themoviedb.org/3${query}api_key=${TMDB_KEY}`
-       
+        console.log(api_url);
         axios(api_url)
             .then(response => {
                 res.json(response.data)
-            }).catch(err=>console.log(err))
+            }).catch(err=>{
+                console.error(err);
+                console.log(err);
+            })
     }
     return
 }))

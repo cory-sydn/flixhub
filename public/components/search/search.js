@@ -2,7 +2,6 @@ const searchButton = document.getElementById("search__button")
 const topLink = document.querySelector(".top-link")
 
 const BASE_IMG_URL_FIND = "https://image.tmdb.org/t/p/w500"
-//const GENRE_URL_FIND = "https://api.themoviedb.org/3/genre/movie/list?" 
 
 const fetchSearchData = async (url) => {
     try{
@@ -18,7 +17,6 @@ const fetchSearchData = async (url) => {
         console.log("Something wrong with the api!");
     } 
 }
-
 
 searchButton.addEventListener("click", (e)=> {
     e.preventDefault()      
@@ -41,21 +39,7 @@ searchButton.addEventListener("click", (e)=> {
     window.scrollTo(0,document.body.scrollHeight );
 })
 
-// let genreArray= []
-// const fetchGenreData = async (url) => {
-//     try{
-//     const response = await fetch(url)
-//     const data = await response.json()
-//     if(!response.ok) throw Error("Reload the page")
-//     genreArray = data.genres
-   
-//     } catch (err) {
-//         console.log(err);
-//     } 
-// }
-// fetchGenreData(GENRE_URL_FIND)
 let genreArray= [{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"name":"Animation"},{"id":35,"name":"Comedy"},{"id":80,"name":"Crime"},{"id":99,"name":"Documentary"},{"id":18,"name":"Drama"},{"id":10751,"name":"Family"},{"id":14,"name":"Fantasy"},{"id":36,"name":"History"},{"id":27,"name":"Horror"},{"id":10402,"name":"Music"},{"id":9648,"name":"Mystery"},{"id":10749,"name":"Romance"},{"id":878,"name":"Science Fiction"},{"id":10770,"name":"TV Movie"},{"id":53,"name":"Thriller"},{"id":10752,"name":"War"},{"id":37,"name":"Western"}]
-
 
 const list = document.getElementById("display_finding")
 const gridImg = document.getElementsByClassName("movie-list__item-link")
@@ -67,7 +51,6 @@ window.addEventListener('load',  ()=> {
     const cssObj = window.getComputedStyle(gridImg[0], null )
     gridImgWidth = cssObj.getPropertyValue("width")
 })
-
 
 const listFoundMovies = (data) =>{    
     list.innerHTML = ""
@@ -206,6 +189,4 @@ window.addEventListener('scroll', () => {
         topLink.classList.remove("show-link")
     }
 })
-
-
 

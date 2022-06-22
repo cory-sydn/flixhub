@@ -4,7 +4,7 @@ const posterLeftArrow = document.querySelector(".poster-slider__left-arrow")
 const posterRightArrow = document.querySelector(".poster-slider__right-arrow")
 const posters = document.querySelectorAll(".featured-content")
 const poster = document.querySelector("[data-index='0']")
-
+const date = document.querySelector('.footer-date')
 let screenWidth = window.screen.availWidth
 
 
@@ -79,4 +79,4 @@ rightArrow.forEach((arrow, i) => {
     })
 })
 
-
+date.innerHTML = new Date().getFullYear()

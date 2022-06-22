@@ -19,7 +19,7 @@
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <h1 class="navbar__logo">Flix<span>Hub</span></h1>
+            <h1 class="navbar__logo logo">Flix<span>Hub</span></h1>
             <div class="navbar_container__menu">
                 <ul class="menu-list">
                     <li class="menu-list_item"><a href="#">Home</a></li> 
@@ -125,7 +125,7 @@
             </div>
 
              <!--  TMDB API  -->
-            <header id="display"><h2 id="display-title">POPULAR MOVIES</h2></header>
+            <header id="popular"><h2 id="display-title">POPULAR MOVIES</h2></header>
             <div class="featured-content__list-grid">
                 <div class="movie-list__item">
                     <a href="#" class="movie-list__item-link grid-img">
@@ -168,7 +168,7 @@
                     </ul>
                 </div>            
           <!-- SLIDERS -->
-            <header id="popular"><h2>RECOMMENDATIONS</h2></header>
+            <header id="recommendations"><h2>RECOMMENDATIONS</h2></header>
             <div class="featured-content__slider">
                 <i class="fa-solid fa-angle-left slider__left-arrow" tabindex="1"  aria-label="Previous slide"></i>
                 <div class="featured-content__slider-wrapper" >                    
@@ -328,18 +328,30 @@
                 <i class="fa-solid fa-angle-right slider__right-arrow" tabindex="2"  aria-label="Next slide"></i>
             </div>
         </div>
+        
     </main>
+    <footer>
+        <div class="footer">
+            <div class="footer__about">
+                <p>Flixhub is a movie finder app that can help you choose which movies or series to watch</p>
+                <p>You can search movies by the name and add to your bookmark as you wish</p>
+            </div>
+            <div class="footer__links">
+                <div class="legalities">
+                    <a href="https://github.com/cory-sydn">Terms of Service</a>
+                    <span aria-hidden="true">&nbsp;•&nbsp;</span>
+                    <a href="https://github.com/cory-sydn">Privacy Policy</a>
+                </div>
+                <div>
+                    <h1 class="footer-logo logo">Flix<span>Hub</span></h1>
+                </div>
+                <a href="https://github.com/cory-sydn" class="fancy-link" target="_blank">©<span class="footer-date"></span>&nbsp;Copyright &ensp;<span class="signiture">Kora Design</span></a>
+            </div>       
+        </div>
+    </footer>
     <script src="components/main/lightToggle.js"></script>
     <script src="components/main/pageNav.js"></script>
     <script src="components/main/series.js"></script>  
-    <!-- <script src="components/search/bookmark.js"></script> -->
-    <div class="footer-down">
-        <div class="legalities">           
-            <a href="#">Terms of Service</a>
-            <span aria-hidden="true">&nbsp;•&nbsp;</span>
-            <a href="#">Privacy Policy</a>
-        </div>
-    <a href="https://github.com/cory-sydn" class="fancy-link" target="_blank">© 2021 Copyright: Kora Design</a>       
-    </div>
+    <!-- <script src="components/search/bookmark.js"></script> -->    
 </body>
 </html>
