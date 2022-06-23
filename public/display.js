@@ -1,13 +1,19 @@
 const BASE_IMG_URL = "https://image.tmdb.org/t/p/w500"
 
-// MENU SELECTION  / LINK HANDLING
+// before anything else take item measurements
+let gridImgWidth;
+window.addEventListener('load',  ()=> {
+    const cssObj = window.getComputedStyle(gridImg[0], null )
+    gridImgWidth = cssObj.getPropertyValue("width")
+})
 
 // first load screening Link(default)
 window.addEventListener('load',  ()=> {
-    API_URL = "https://cory-sydn.github.io/flixhub/" + `discover/movie?sort_by=popularity.desc&`
+    API_URL = "http://localhost:8000/" + `discover/movie?sort_by=popularity.desc&`
     fetchData(API_URL)
 })
 
+// MENU SELECTION  / LINK HANDLING
 const menuButtons = document.getElementsByClassName("menu_link")
 const displayTitle = document.getElementById("display-title")
 
@@ -30,7 +36,7 @@ Array.prototype.forEach.call(menuButtons, button =>{
                 const firstTitle = selection.includes("top") ? "TOP RATED": selection.includes("date")? "NEW" : "POPULAR"
                 displayTitle.innerText= `${firstTitle} SERIES`
             }
-            API_URL = "https://cory-sydn.github.io/flixhub/" + `${selectLink}`
+            API_URL = "http://localhost:8000/" + `${selectLink}`
             console.log(API_URL);
             fetchData(API_URL)
         }
@@ -45,11 +51,6 @@ const getTotalPageNum= async(totalPageNum)=>{
 const grid = document.querySelector(".featured-content__list-grid")
 const gridImg = document.getElementsByClassName("movie-list__item-link")
 
-let gridImgWidth;
-window.addEventListener('load',  ()=> {
-    const cssObj = window.getComputedStyle(gridImg[0], null )
-    gridImgWidth = cssObj.getPropertyValue("width")
-})
 
 const handleMovies = (data) => {    
     grid.innerHTML = ""

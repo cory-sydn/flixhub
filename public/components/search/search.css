@@ -373,34 +373,34 @@ body {
  * ----------------------------------------
  */
 @-webkit-keyframes scale-in-hor-left {
-  0% {
+    0% {
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
     -webkit-transform-origin: 0% 0%;
             transform-origin: 0% 0%;
     opacity: 1;
-  }
-  100% {
+    }
+    100% {
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
     -webkit-transform-origin: 0% 0%;
             transform-origin: 0% 0%;
     opacity: 1;
-  }
+    }
 }
 @keyframes scale-in-hor-left {
-  0% {
+    0% {
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
     -webkit-transform-origin: 0% 0%;
             transform-origin: 0% 0%;
     opacity: 1;
-  }
-  100% {
+    }
+    100% {
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
     -webkit-transform-origin: 0% 0%;
             transform-origin: 0% 0%;
     opacity: 1;
-  }
+    }
 }

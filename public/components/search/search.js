@@ -22,12 +22,13 @@ searchButton.addEventListener("click", (e)=> {
     e.preventDefault()      
     const rawInput = document.getElementById("search__input").value
     const regExp = /([A-Z]){2}\w+/gi;
-    console.log(rawInput.match(regExp));
+
     if (rawInput.match(regExp) === null) return  modal.showModal()
     const query = rawInput.trim()
     //console.log(query);
-    const baseUrl =  "https://cory-sydn.github.io/flixhub/search/" + `${query}`
-    console.log(baseUrl);
+    const baseUrl =  "http://localhost:8000/search/" + `${query}`
+    
+    spinner()
     fetchSearchData(baseUrl)
 
     // If opened, close bookmarks
