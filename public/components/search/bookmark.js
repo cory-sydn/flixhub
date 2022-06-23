@@ -51,7 +51,7 @@ const handleDelete = (id)=> {
 
 // DISPLAY
 const displayBookmarks = (items) => {    
-    if(items.length < 1 ) return  modal.showModal()
+    if(items.length < 1 ) return  modal.showModal() + clearModal()
     
     let bmGridImgWidth="0px";
     const bmListItem = document.createElement("div")

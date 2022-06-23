@@ -1,6 +1,5 @@
 body {
     background: var(--dark-bg);
-    
 }
 
 .search-main__container {
@@ -225,7 +224,6 @@ body {
     transform: scale(1.25);
     color: var(--theme-orange);
     cursor: pointer;
- 
 }
 .bookmark-delete-button {
     margin-top: 8px;
@@ -332,38 +330,43 @@ body {
 /*    MODAL    */
 .modal {
     position: absolute;
-    top: 1%;
-    left: 45%;
-    max-width: 30em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 40em;
     background: #759 ;
-    border-radius: 12px;
+    border-radius: 6px;
     font-family: Arial;
     box-shadow: 0 0 4px 0px #6237 inset,
     0 0 12px 0px #0003  ;  
     border:0;
 }
-.modal p {
-    background: none;
-    box-shadow:none;
+
+.modal h2 {
+    margin-right: 48px;
+    margin-bottom: 10px;
 }
 .modal::backdrop {
     background: #0053;
 }
-
 .modal-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
+    display: grid;
+    place-items: center;
+    margin: 0 1em;
 }
 
 .modal-buttons {
     width: 100%;
-    display: flex;
-    flex-direction:row;
-    justify-content: space-between;
+    display: grid;
+    place-items: center;
 }
 
+.modal__btn-close {
+    padding: 0.5em 1em;
+    margin: 0.7em;
+    border-radius: 6px;
+    background: peachpuff;
+}
 /**
  * ----------------------------------------
  * animation scale-in-hor-left
