@@ -23,9 +23,8 @@ searchButton.addEventListener("click", (e)=> {
     const rawInput = document.getElementById("search__input").value
     const regExp = /([A-Z]){2}\w+/gi;
 
-    if (rawInput.match(regExp) === null) return  modal.showModal()
+    if (rawInput.match(regExp) === null) return  warningMessage()
     const query = rawInput.trim()
-    //console.log(query);
     const baseUrl =  "http://localhost:8000/search/" + `${query}`
     
     spinner()
@@ -157,19 +156,14 @@ const handleBookmarkButton = (data) => {
 function syncStorage(data, item){
     data.forEach((movie) => {                    
         if (item.getElementsByClassName("add-bookmarks")[0].classList.contains("clicked")  ) {
-            if(movie.id === Number(item.dataset.tmdbId)){
-                //console.log(movie.id);
-                console.log(Number(item.dataset.tmdbId));               
+            if(movie.id === Number(item.dataset.tmdbId)){                            
                 addToList(movie)
             }
         } 
         if (!item.getElementsByClassName("add-bookmarks")[0].classList.contains("clicked")) {
             
-            if(movie.id === Number(item.dataset.tmdbId)){
-                //console.log(movie.id);
-                console.log(item.dataset.tmdbId);
-                handleDelete(movie.id)
-                
+            if(movie.id === Number(item.dataset.tmdbId)){                
+                handleDelete(movie.id)                
             }
         }
     })
