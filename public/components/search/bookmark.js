@@ -98,16 +98,16 @@ const displayBookmarks = (items) => {
         el.style.setProperty("background-size", `${bmGridImgWidth}` )
     })
 
-
     window.addEventListener("resize",  ()=> {
         const bookmarkListItems = document.getElementsByClassName("bookmark-list__item-link")
-        const cssObj = window.getComputedStyle(bookmarkListItems[0], null )
-
-        newBmGridImgWidth = cssObj.getPropertyValue("width")
-
-        Array.prototype.forEach.call(ratingCenter, el=> {
-            el.style.setProperty("background-size", `${newBmGridImgWidth}` )
-        })
+        if (bookmarkListItems.length) {   // check if bookmark has an item or not
+            const cssObj = window.getComputedStyle(bookmarkListItems[0], null )
+            newBmGridImgWidth = cssObj.getPropertyValue("width")
+            
+            Array.prototype.forEach.call(ratingCenter, el=> {
+                el.style.setProperty("background-size", `${newBmGridImgWidth}` )
+            })
+        }
     })       
     
 }
@@ -137,18 +137,14 @@ function syncStorageWithBookmarks(data, item){
     data.forEach((movie) => {
        
         if (!item.getElementsByClassName("add-bookmarks")[0].classList.contains("clicked")) {
-
             if(movie.data.id === Number(item.dataset.tmdbId)){                
                 handleDelete(movie.data.id)                
             }            
-        }
-
-        if (item.getElementsByClassName("add-bookmarks")[0].classList.contains("clicked")  ) {
+        } else {
             if(movie.data.id === Number(item.dataset.tmdbId)){                               
                 addToList(movie.data)
             }
         }
-        
     })
 }
 
@@ -163,7 +159,5 @@ Array.prototype.forEach.call(listItems, item => {
     item.addEventListener('dblclick', ()=> {
         item.getElementsByClassName("add-bookmarks")[0].classList.toggle("clicked")       
     }) 
-
 })
-
 
