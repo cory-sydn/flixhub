@@ -8,34 +8,49 @@ const date = document.querySelector('.footer-date')
 let screenWidth = window.screen.availWidth
 
 
-let direction = 0
-let current = 1
-function posterSlider(){
-    let posterArea = screenWidth - 50
-    if( (current === (posters.length +1) || (current === 0) ) ) {
-        current = 1
-        posterSlideWrapper.style.transform = 'translateX(0)'
-    } else {
-        posterSlideWrapper.style.transform = `translateX(${ posterSlideWrapper.computedStyleMap().get("transform")[0].x.value - (direction * posterArea)}px)`
-    }
-   
-    window.addEventListener('resize', () => {
-    screenWidth =  window.screen.availWidth
-    posterSlideWrapper.style.transform = 'translateX(0)'
-})
+let posterIndex = 0;
+let direction = 0;
+function heroSlider() {
+
+    posters.forEach((poster, index) => {        
+
+        if (poster.classList.contains('active-hero--left')) {
+            poster.classList.remove('active-hero--left')        
+        }
+        if (poster.classList.contains('active-hero--right')) {
+            poster.classList.remove('active-hero--right')        
+        }
+        
+        if (index === posterIndex) {
+            direction === 0 ? poster.classList.add('active-hero--left') : poster.classList.add('active-hero--right')
+            console.log(poster);            
+        }
+    });
 }
 
 posterLeftArrow.addEventListener('click', ()=> {
-    direction = -1
-    current--
-    posterSlider()
+    direction = 1
+    posterIndex === 0 
+        ? posterIndex = 3
+        : posterIndex -= 1
+    heroSlider(posterIndex);
 })
 
 posterRightArrow.addEventListener('click', ()=>{
-    direction = 1
-    current++
-    posterSlider()
+    direction = 0
+    posterIndex + 1 === posters.length 
+      ? posterIndex = 0 
+      : posterIndex += 1
+    heroSlider(posterIndex);
 })
+
+const interval = setInterval(() => {
+    direction = 0
+    posterIndex + 1 === posters.length 
+        ? posterIndex = 0 
+        : posterIndex += 1
+    heroSlider(posterIndex)
+}, 7000)
 
 //  MOVIES  SLIDER
 
