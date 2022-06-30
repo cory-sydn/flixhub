@@ -1,11 +1,10 @@
-//  POSTER SLIDER
+//  HERO SLIDER
 const posterSlideWrapper = document.querySelector(".poster-slider__wrapper")
 const posterLeftArrow = document.querySelector(".poster-slider__left-arrow")
 const posterRightArrow = document.querySelector(".poster-slider__right-arrow")
 const posters = document.querySelectorAll(".featured-content")
 const poster = document.querySelector("[data-index='0']")
 const date = document.querySelector('.footer-date')
-let screenWidth = window.screen.availWidth
 
 
 let posterIndex = 0;
@@ -22,8 +21,7 @@ function heroSlider() {
         }
         
         if (index === posterIndex) {
-            direction === 0 ? poster.classList.add('active-hero--left') : poster.classList.add('active-hero--right')
-            console.log(poster);            
+            direction === 0 ? poster.classList.add('active-hero--left') : poster.classList.add('active-hero--right')           
         }
     });
 }
@@ -64,23 +62,30 @@ rightArrow.forEach((arrow, i) => {
     
     const swipeItemWidth =swipeImg[0].computedStyleMap().get("width").value + (swipeImg[0].computedStyleMap().get("margin-left").value)*2
     const itemCount = slideWrapper[i].querySelectorAll("img").length
-  
     const slideLength = swipeItemWidth * itemCount
-    
+
     function resetTransform(i){
         slideWrapper[i].style.transform = "translateX(0)"
         leftArrow[i].style.setProperty('display', "none")     
     } 
-    arrow.addEventListener('click', () => {      
-        if( slideLength <  (- slideWrapper[i].computedStyleMap().get("transform")[0].x.value + screenWidth - 50) ) {
-            resetTransform(i)            
+    arrow.addEventListener('click', () => {
+        const screenWidth =  window.visualViewport.width
+        const displayedWidth = (- slideWrapper[i].computedStyleMap().get("transform")[0].x.value + screenWidth - 50)
+
+        if ((slideLength - displayedWidth) <  swipeItemWidth ) {
+            const remainder = slideLength - displayedWidth
+            slideWrapper[i].style.transform = `translateX(${slideWrapper[i].computedStyleMap().get("transform")[0].x.value - (remainder + 16) }px)`
         } else {
            slideWrapper[i].style.transform = `translateX(${slideWrapper[i].computedStyleMap().get("transform")[0].x.value - swipeItemWidth}px)`
            leftArrow[i].style.setProperty('display', "flex")
-        }        
+        }
+
+        if (slideLength - displayedWidth < 0) return resetTransform(i)
     })
+
     leftArrow.forEach((arrow, i) => {
         arrow.addEventListener('click',()=>{
+            const screenWidth =  window.visualViewport.width
             if( screenWidth >  ( - slideWrapper[i].computedStyleMap().get("transform")[0].x.value +(swipeItemWidth*2) )) {
                 resetTransform(i)
             } else {
@@ -89,7 +94,6 @@ rightArrow.forEach((arrow, i) => {
         })
     })
     window.addEventListener('resize', () => {
-        screenWidth =  window.screen.availWidth
         resetTransform(i)
     })
 })
